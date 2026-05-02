@@ -1,15 +1,37 @@
 @use "./base.scss";
 
-// Claude-inspired refinements
+// Claude-inspired refinements with Chinese support
 
 :root {
-  --content-width: 750px;
+  --content-width: 780px;
   --sidebar-width: 320px;
-  --base-font-size: 16px;
+  --base-font-size: 16.5px;
+
+  // Font stacks: Latin from Google Fonts (loaded by Quartz), Chinese from system
+  --bodyFont:
+    "Inter", -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB",
+    "Helvetica Neue", sans-serif;
+
+  --headerFont:
+    "Source Serif 4",
+    "Songti SC", "STSong", "Source Han Serif SC",
+    Georgia, serif;
+
+  --codeFont:
+    "JetBrains Mono", "Fira Code",
+    "Menlo", "Consolas",
+    "PingFang SC", monospace;
+}
+
+html {
+  font-size: var(--base-font-size);
 }
 
 body {
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--bodyFont);
+  font-feature-settings: "ss01", "cv11", "kern";
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -19,32 +41,65 @@ article {
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--headerFont);
     font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.25;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    color: var(--dark);
   }
 
   h1 {
-    font-size: 2.25rem;
-    margin-top: 2rem;
-    margin-bottom: 1.25rem;
+    font-size: 2.1rem;
+    margin-top: 2.2rem;
+    margin-bottom: 1.3rem;
+    letter-spacing: -0.025em;
   }
 
   h2 {
-    font-size: 1.6rem;
-    margin-top: 2.25rem;
+    font-size: 1.55rem;
+    margin-top: 2.4rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid var(--lightgray);
-    padding-bottom: 0.4rem;
+    padding-bottom: 0.45rem;
   }
 
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
   }
 
-  // Body text
+  h4 {
+    font-size: 1.05rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  // Body text — generous line-height for CJK readability
   p, li {
     font-size: 1rem;
-    line-height: 1.75;
+    line-height: 1.85;
     color: var(--darkgray);
+    letter-spacing: 0.005em;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1.1rem;
+  }
+
+  // List spacing
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
+
+    li {
+      margin-bottom: 0.35rem;
+
+      // Tighter spacing for nested lists
+      ul, ol {
+        margin-top: 0.35rem;
+        margin-bottom: 0;
+      }
+    }
   }
 
   // Inline code
