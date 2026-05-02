@@ -24,7 +24,7 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
         header: "Source Serif 4",
-        body: "Inter",
+        body: "Source Serif 4",
         code: "JetBrains Mono",
       },
       colors: {

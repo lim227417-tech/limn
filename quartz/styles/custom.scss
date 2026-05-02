@@ -7,15 +7,17 @@
   --sidebar-width: 320px;
   --base-font-size: 16.5px;
 
-  // Font stacks: Latin from Google Fonts (loaded by Quartz), Chinese from system
+  // All-serif aesthetic: literary, book-like
   --bodyFont:
-    "Inter", -apple-system, BlinkMacSystemFont,
-    "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB",
-    "Helvetica Neue", sans-serif;
+    "Source Serif 4",
+    "Songti SC", "STSong", "Source Han Serif SC",
+    "Noto Serif CJK SC",
+    Georgia, "Times New Roman", serif;
 
   --headerFont:
     "Source Serif 4",
     "Songti SC", "STSong", "Source Han Serif SC",
+    "Noto Serif CJK SC",
     Georgia, serif;
 
   --codeFont:
@@ -197,19 +199,20 @@ article {
 // Sidebar headings
 .sidebar {
   h1, h2, h3 {
-    font-family: var(--bodyFont);
+    font-family: var(--headerFont);
     font-weight: 600;
     letter-spacing: -0.01em;
   }
 
-  // Recent notes / explorer
+  // Section labels: serif italic for literary feel
   .recent-notes h3,
   .explorer button h2 {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    font-size: 0.95rem;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     color: var(--gray);
-    font-weight: 600;
+    text-transform: none;
   }
 }
 
@@ -228,11 +231,12 @@ article {
 // Backlinks / graph card
 .backlinks, .graph, .toc {
   & > h3 {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    font-family: var(--headerFont);
+    font-size: 0.95rem;
+    font-style: italic;
+    font-weight: 500;
     color: var(--gray);
-    font-weight: 600;
+    letter-spacing: 0.01em;
   }
 }
 
