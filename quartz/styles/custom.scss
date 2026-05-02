@@ -1,3 +1,209 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// Claude-inspired refinements
+
+:root {
+  --content-width: 750px;
+  --sidebar-width: 320px;
+  --base-font-size: 16px;
+}
+
+body {
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings: serif, tighter
+article {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--headerFont);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    margin-top: 2.25rem;
+    border-bottom: 1px solid var(--lightgray);
+    padding-bottom: 0.4rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  // Body text
+  p, li {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--darkgray);
+  }
+
+  // Inline code
+  code {
+    background: var(--lightgray);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.88em;
+    color: var(--secondary);
+  }
+
+  // Code blocks
+  pre {
+    border-radius: 8px;
+    border: 1px solid var(--lightgray);
+    padding: 1rem 1.2rem;
+
+    code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+  }
+
+  // Blockquotes
+  blockquote {
+    border-left: 3px solid var(--secondary);
+    background: var(--highlight);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0 6px 6px 0;
+    color: var(--darkgray);
+    font-style: normal;
+  }
+
+  // Links
+  a {
+    color: var(--secondary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+      border-bottom-color: var(--secondary);
+    }
+
+    &.internal {
+      background: var(--highlight);
+      padding: 0.05em 0.35em;
+      border-radius: 4px;
+      border-bottom: none;
+
+      &:hover {
+        background: var(--lightgray);
+      }
+    }
+  }
+
+  // Tables
+  table {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--lightgray);
+
+    th {
+      background: var(--lightgray);
+      font-weight: 600;
+    }
+
+    td, th {
+      padding: 0.6rem 0.9rem;
+    }
+  }
+
+  // Horizontal rule
+  hr {
+    border: none;
+    border-top: 1px solid var(--lightgray);
+    margin: 2.5rem 0;
+  }
+
+  // Images
+  img {
+    border-radius: 8px;
+    max-width: 100%;
+  }
+}
+
+// Page title
+.page-title {
+  font-family: var(--headerFont);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+// Sidebar headings
+.sidebar {
+  h1, h2, h3 {
+    font-family: var(--bodyFont);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  // Recent notes / explorer
+  .recent-notes h3,
+  .explorer button h2 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+}
+
+// Search box
+.search-button {
+  border-radius: 8px;
+  background: var(--lightgray);
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+  }
+}
+
+// Backlinks / graph card
+.backlinks, .graph, .toc {
+  & > h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+}
+
+// Tag pills
+.tags li a {
+  background: var(--lightgray) !important;
+  color: var(--darkgray) !important;
+  border-radius: 999px !important;
+  padding: 0.2em 0.7em !important;
+  font-size: 0.8rem !important;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: var(--secondary) !important;
+    color: var(--light) !important;
+  }
+}
+
+// Subtle scrollbar
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightgray) transparent;
+}
+
+// Selection
+::selection {
+  background: var(--secondary);
+  color: var(--light);
+}
