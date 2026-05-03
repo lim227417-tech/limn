@@ -266,3 +266,197 @@ article {
   background: var(--secondary);
   color: var(--light);
 }
+
+// ===== Site title (top-left) =====
+.page-title {
+  font-family: var(--headerFont);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+
+  a {
+    color: var(--dark);
+    border-bottom: none !important;
+    background: none !important;
+    padding: 0 !important;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+
+  // Tagline (the suffix " · a digital garden")
+  &::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: var(--secondary);
+    margin-top: 0.55rem;
+    border-radius: 2px;
+  }
+}
+
+// Make the suffix display as italic tagline below the title
+.page-title a {
+  display: inline-block;
+}
+
+// ===== Homepage hero =====
+.home-hero {
+  margin: 1rem 0 2rem;
+
+  h1 {
+    font-size: 2.6rem !important;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.1rem !important;
+    color: var(--dark);
+  }
+
+  p {
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--darkgray);
+    max-width: 38em;
+  }
+}
+
+// Hide article title on homepage (we use the hero instead)
+body[data-slug="index"] {
+  .article-title {
+    display: none;
+  }
+
+  .content-meta {
+    display: none;
+  }
+
+  // Center & emphasize section headings on homepage
+  article h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--secondary);
+    border-bottom: none;
+    margin-top: 2.6rem;
+    padding-bottom: 0;
+
+    &::before {
+      content: "✦  ";
+      color: var(--tertiary);
+      font-weight: 400;
+    }
+  }
+
+  // Soften links on home
+  article a.internal {
+    background: transparent;
+    border-bottom: 1px solid var(--lightgray);
+    padding: 0;
+
+    &:hover {
+      background: var(--highlight);
+      border-bottom-color: var(--secondary);
+    }
+  }
+
+  // Stylize horizontal rule on home
+  article hr {
+    width: 60px;
+    border-top: 2px solid var(--lightgray);
+    margin: 2.5rem 0 1.8rem;
+  }
+
+  // Lists on homepage feel airier
+  article ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+}
+
+// ===== Footer cleanup =====
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--lightgray);
+  margin-top: 3rem;
+}
+
+// ===== Dark mode transition animation =====
+
+// Smoothly fade colors when theme switches
+html, body,
+article, .page,
+.sidebar, .center, footer,
+h1, h2, h3, h4, h5, h6, p, li,
+a, code, pre, blockquote,
+.search-button, .backlinks, .toc,
+button, input, table, th, td, hr {
+  transition:
+    background-color 0.9s ease,
+    color 0.8s ease,
+    border-color 0.8s ease,
+    box-shadow 0.8s ease;
+}
+
+// Darkmode toggle button: animate icon swap
+.darkmode {
+  position: relative;
+
+  svg {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  }
+
+  // Both icons sit in the same spot, fade between them
+  & > svg.icon-light,
+  & > svg.icon-dark {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+  }
+
+  // Spin on click
+  &:active svg {
+    transform: rotate(180deg) scale(0.9);
+  }
+
+  // Hover: warm glow
+  &:hover svg {
+    transform: rotate(20deg);
+    color: var(--secondary);
+  }
+}
+
+// Soft page-wide fade when theme switches
+@keyframes themeFade {
+  from { opacity: 0.85; }
+  to   { opacity: 1; }
+}
+
+html.theme-switching body {
+  animation: themeFade 0.4s ease;
+}
+
+// View Transitions API — smooth circular reveal (modern browsers)
+@supports (view-transition-name: root) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  ::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  ::view-transition-new(root) {
+    z-index: 2;
+  }
+}
