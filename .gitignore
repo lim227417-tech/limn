@@ -9,5 +9,5 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
-.quartz-cache/
+.quartz/
 quartz/cli/tui/dist/
