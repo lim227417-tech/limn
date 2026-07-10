@@ -16,30 +16,30 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: "Source Serif 4"
-      body: "Source Serif 4"
+      header: "DM Serif Display"
+      body: "Bricolage Grotesque"
       code: "JetBrains Mono"
     colors:
       lightMode:
-        light: "#faf9f5"
-        lightgray: "#e8e6dc"
-        gray: "#a8a29e"
-        darkgray: "#3d3d3a"
-        dark: "#1f1e1d"
-        secondary: "#cc785c"
-        tertiary: "#d97757"
-        highlight: "rgba(204, 120, 92, 0.1)"
-        textHighlight: "#f5e6c8aa"
+        light: "#f5eedd"
+        lightgray: "#e3d9c0"
+        gray: "#9a8e76"
+        darkgray: "#2d4673"
+        dark: "#16294e"
+        secondary: "#284d78"
+        tertiary: "#c8482b"
+        highlight: "rgba(200, 72, 43, 0.1)"
+        textHighlight: "#f4c84b88"
       darkMode:
-        light: "#262624"
-        lightgray: "#3a3a37"
-        gray: "#6b6b66"
-        darkgray: "#d4d2cc"
-        dark: "#faf9f5"
-        secondary: "#d97757"
-        tertiary: "#e89478"
-        highlight: "rgba(217, 119, 87, 0.12)"
-        textHighlight: "#8b6f3d66"
+        light: "#06182f"
+        lightgray: "#122845"
+        gray: "#7191b8"
+        darkgray: "#caddf4"
+        dark: "#eef4fc"
+        secondary: "#8fb9de"
+        tertiary: "#e0552f"
+        highlight: "rgba(224, 85, 47, 0.14)"
+        textHighlight: "#c9542f55"
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
