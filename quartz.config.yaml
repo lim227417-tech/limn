@@ -179,9 +179,15 @@ plugins:
   - source: github:quartz-community/backlinks
     enabled: false
   - source: github:quartz-community/article-title
-    enabled: false
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 10
   - source: github:quartz-community/content-meta
-    enabled: false
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 20
   - source: github:quartz-community/tag-list
     enabled: false
   - source: github:quartz-community/page-title
@@ -198,7 +204,11 @@ plugins:
   - source: github:quartz-community/reader-mode
     enabled: false
   - source: github:quartz-community/breadcrumbs
-    enabled: false
+    enabled: true
+    layout:
+      position: beforeBody
+      priority: 5
+      condition: not-index
   - source: github:quartz-community/comments
     enabled: false
   - source: github:quartz-community/footer
