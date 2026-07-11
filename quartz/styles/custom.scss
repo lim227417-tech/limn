@@ -8,7 +8,7 @@ body:not([data-slug="index"]) .dappled-scene {
 }
 
 /* 首页隐藏文章标题（左侧栏已有 PageTitle） */
-body[data-slug="index"] .page-header {
+body[data-slug="index"] .article-title {
   display: none !important;
 }
 
