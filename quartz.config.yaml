@@ -227,12 +227,12 @@ plugins:
       position: left
       priority: 45
       display: desktop-only
-  - source: github:quartz-community/bases-page
+  - source: ./.quartz/plugins/dappled-scene
     enabled: true
-    options: {}
-    order: 50
-  - source: github:quartz-community/note-properties
-    enabled: false
+    layout:
+      position: beforeBody
+      priority: 1
+      display: desktop-only
   - source:
       name: quartz-themes
       repo: github:saberzero1/quartz-themes

@@ -95,6 +95,7 @@ export default (() => {
         <meta name="generator" content="Quartz" />
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
+        <link rel="stylesheet" href={joinSegments(baseDir, "static/font/font-style.css")} />
         {js
           .filter((resource) => resource.loadTime === "beforeDOMReady")
           .map((res) => JSResourceToScriptElement(res, true))}
