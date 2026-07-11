@@ -7,6 +7,46 @@ body:not([data-slug="index"]) .dappled-scene {
   display: none !important;
 }
 
+/* dappled-scene WebGL 动画容器 */
+:root {
+  --komorebi-shadow: #233452;
+  --komorebi-mid: #e89a39;
+  --komorebi-light: #f5eedd;
+  --komorebi-frame: var(--komorebi-shadow);
+  --komorebi-gap: var(--komorebi-light);
+}
+
+[saved-theme="dark"] {
+  --komorebi-shadow: #0c2038;
+  --komorebi-mid: #6a86b0;
+  --komorebi-light: #83a1c9;
+  --komorebi-frame: var(--komorebi-light);
+  --komorebi-gap: var(--komorebi-shadow);
+}
+
+.dappled-scene {
+  box-sizing: border-box;
+  border: 2px solid var(--komorebi-frame);
+  background-color: var(--komorebi-gap);
+  width: 100%;
+  height: 180px;
+  margin: 0 0 1.5rem;
+  padding: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dappled-scene > .dappled-canvas {
+  image-rendering: pixelated;
+  opacity: 0;
+  animation: 0.8s forwards dappled-fade-in;
+  display: block;
+}
+
+@keyframes dappled-fade-in {
+  to { opacity: 1; }
+}
+
 /* 页面容器 */
 .page {
   max-width: 1400px;
