@@ -2,7 +2,107 @@
 
 /* ===== jzhao.xyz 风格复刻 ===== */
 
-/* 链接样式 - 带下划线和强调色 */
+/* 页面容器 */
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page > #quartz-body {
+  grid-template:
+    "grid-sidebar-left grid-header grid-sidebar-right"
+    "grid-sidebar-left grid-center grid-sidebar-right"
+    "grid-sidebar-left grid-footer grid-sidebar-right"
+    / 320px auto 320px;
+  gap: 5px;
+}
+
+/* 侧边栏 */
+.page > #quartz-body .sidebar {
+  box-sizing: border-box;
+  gap: 1.2rem;
+  height: 100vh;
+  padding: 6rem 2rem 2rem;
+  position: sticky;
+  top: 0;
+}
+
+.page > #quartz-body .sidebar.left {
+  z-index: 1;
+  flex-direction: column;
+  grid-area: grid-sidebar-left;
+}
+
+.page > #quartz-body .sidebar.right {
+  flex-direction: column;
+  grid-area: grid-sidebar-right;
+  margin-right: 0;
+}
+
+.page > #quartz-body .sidebar.left > .flex-component {
+  width: 100%;
+}
+
+/* 页眉 */
+.page > #quartz-body .page-header {
+  grid-area: grid-header;
+  margin: 6rem 0 0;
+}
+
+/* 中心区域 */
+.page > #quartz-body .center,
+.page > #quartz-body footer {
+  min-width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page > #quartz-body footer {
+  grid-area: grid-footer;
+}
+
+/* 页面标题 */
+.page-title {
+  white-space: nowrap;
+  margin: 0;
+  font-size: 1.75rem;
+  font-family: var(--headerFont);
+}
+
+/* 搜索按钮只显示图标 */
+.search > .search-button {
+  border: 1px var(--lightgray) solid;
+  font-family: inherit;
+  font-size: inherit;
+  height: 2rem;
+  text-align: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 0;
+  align-items: center;
+  width: 100%;
+  padding: 0 1rem 0 0;
+  display: flex;
+}
+
+.search > .search-button > p {
+  color: var(--gray);
+}
+
+/* 主要链接样式 */
+a {
+  color: var(--secondary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--tertiary);
+}
+
 article a.internal {
   text-decoration: underline;
   text-decoration-color: var(--tertiary);
@@ -18,25 +118,16 @@ article a.internal.tag-link {
   text-decoration: none;
 }
 
-a.external {
-  color: var(--secondary);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a.external:hover {
-  color: var(--tertiary);
+a.see-more {
+  color: var(--darkgray);
+  text-underline-offset: 2px;
+  opacity: 0.6;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 
 /* 标题排版 */
-.page-title {
-  white-space: nowrap;
-  margin: 0;
-  font-size: 1.75rem;
-  font-family: var(--headerFont);
-}
-
 article h1 {
   font-family: var(--headerFont);
   color: var(--dark);
@@ -44,13 +135,35 @@ article h1 {
   margin-bottom: 0;
 }
 
-article h2, article h3, article h4 {
+article h2,
+article h3,
+article h4 {
   font-family: var(--headerFont);
   color: var(--dark);
 }
 
+h1 {
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+h2 {
+  margin-top: 1.9rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+h3 {
+  margin-top: 1.62rem;
+  margin-bottom: 1rem;
+  font-size: 1.12rem;
+}
+
 /* 正文排版 */
-tbody, li, p {
+tbody,
+li,
+p {
   line-height: 1.6rem;
 }
 
@@ -58,12 +171,20 @@ article p > strong {
   color: var(--dark);
 }
 
+/* 引用块 */
+blockquote {
+  border-left: 3px solid var(--secondary);
+  margin: 1rem 0;
+  padding-left: 1rem;
+  transition: border-color 0.2s;
+}
+
 /* 分割线 */
 hr:after {
   color: var(--tertiary);
 }
 
-/* Recent Notes 标题 */
+/* Recent Notes 样式 */
 .recent-notes > h3 {
   margin: 0.5rem 0 0;
   font-size: 1rem;
@@ -79,39 +200,45 @@ hr:after {
   margin: 1rem 0;
 }
 
+.recent-notes > ul.recent-ul > li .section > .desc > h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
 .recent-notes > ul.recent-ul > li .section > .desc > h3 > a {
   background-color: transparent;
+  color: var(--dark);
 }
 
 .recent-notes > ul.recent-ul > li .section > .meta {
   opacity: 0.6;
   margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--gray);
 }
 
-/* 侧栏布局 */
-.sidebar {
-  box-sizing: border-box;
-  gap: 1.2rem;
+/* 文本高亮 */
+.text-highlight {
+  background-color: var(--textHighlight);
+  border-radius: 5px;
+  padding: 0 0.1rem;
 }
 
-.sidebar.left {
-  flex-direction: column;
+/* 代码块 */
+pre > code {
+  font-family: var(--codeFont);
 }
 
-.sidebar.left > .flex-component {
-  width: 100%;
-}
-
-/* 页脚 */
-.page > #quartz-body footer {
-  min-width: 100%;
-  max-width: 100%;
-}
-
-/* 动画 - 入场淡入 */
+/* 淡入动画 */
 @keyframes fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body.animation-ready #quartz-body > :first-child > :first-child {
@@ -129,26 +256,58 @@ body.animation-ready #quartz-body > :nth-child(2) > :first-child {
   animation-delay: 0.65s;
 }
 
-/* 搜索框 */
-.search > .search-button > p {
-  color: var(--gray);
+/* 响应式 */
+@media (max-width: 800px) {
+  .page > #quartz-body {
+    grid-template:
+      "grid-sidebar-left"
+      "grid-header"
+      "grid-center"
+      "grid-sidebar-right"
+      "grid-footer"
+      / auto;
+    gap: 5px;
+  }
+
+  .page > #quartz-body .sidebar {
+    position: initial;
+    height: unset;
+    padding: 2rem 0 0;
+  }
+
+  .page > #quartz-body .sidebar.left {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  .page > #quartz-body .sidebar.right {
+    margin-left: inherit;
+    margin-right: inherit;
+  }
 }
 
-/* 代码块 */
-pre > code {
-  font-family: var(--codeFont);
-}
+@media not (min-width: 1100px) {
+  .page > #quartz-body {
+    grid-template:
+      "grid-sidebar-left grid-header"
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-sidebar-right"
+      "grid-sidebar-left grid-footer"
+      / 320px auto;
+    gap: 5px;
+  }
 
-/* 引用块 */
-blockquote {
-  border-left: 2px solid var(--tertiary);
-  margin-left: 0;
-  padding-left: 1.2rem;
-}
+  .page > #quartz-body .sidebar.right {
+    position: initial;
+    height: unset;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+  }
 
-/* 文本高亮 */
-.text-highlight {
-  background-color: var(--textHighlight);
-  border-radius: 5px;
-  padding: 0 0.1rem;
+  .page > #quartz-body .sidebar.right > * {
+    flex: 1;
+    max-height: 24rem;
+  }
 }

@@ -78,11 +78,8 @@ plugins:
     enabled: true
     order: 40
   - source: github:quartz-community/table-of-contents
-    enabled: true
+    enabled: false
     order: 50
-    layout:
-      position: right
-      priority: 30
   - source: github:quartz-community/crawl-links
     enabled: true
     options:
@@ -176,18 +173,14 @@ plugins:
       group: toolbar
       groupOptions:
         grow: true
+    options:
+      hideSearchButtonText: true
   - source: github:quartz-community/backlinks
     enabled: false
   - source: github:quartz-community/article-title
-    enabled: true
-    layout:
-      position: beforeBody
-      priority: 10
+    enabled: false
   - source: github:quartz-community/content-meta
-    enabled: true
-    layout:
-      position: beforeBody
-      priority: 20
+    enabled: false
   - source: github:quartz-community/tag-list
     enabled: false
   - source: github:quartz-community/page-title
@@ -204,11 +197,7 @@ plugins:
   - source: github:quartz-community/reader-mode
     enabled: false
   - source: github:quartz-community/breadcrumbs
-    enabled: true
-    layout:
-      position: beforeBody
-      priority: 5
-      condition: not-index
+    enabled: false
   - source: github:quartz-community/comments
     enabled: false
   - source: github:quartz-community/footer
@@ -221,20 +210,23 @@ plugins:
   - source: github:quartz-community/recent-notes
     enabled: true
     options:
-      limit: 8
+      limit: 4
       showTags: false
+      title: "Selected Writing"
     layout:
       position: left
       priority: 40
       display: desktop-only
-  - source: github:quartz-community/spacer
+  - source: github:quartz-community/recent-notes
     enabled: true
-    options: {}
-    order: 25
+    options:
+      limit: 4
+      showTags: false
+      title: "Recent Notes"
     layout:
       position: left
-      priority: 25
-      display: mobile-only
+      priority: 45
+      display: desktop-only
   - source: github:quartz-community/bases-page
     enabled: true
     options: {}
