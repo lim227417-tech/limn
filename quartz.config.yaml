@@ -16,8 +16,8 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: "DM Serif Display"
-      body: "Bricolage Grotesque"
+      header: "Noto Serif SC"
+      body: "Noto Serif SC"
       code: "JetBrains Mono"
     colors:
       lightMode:
