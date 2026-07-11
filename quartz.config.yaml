@@ -183,10 +183,7 @@ plugins:
       position: beforeBody
       priority: 10
   - source: github:quartz-community/content-meta
-    enabled: true
-    layout:
-      position: beforeBody
-      priority: 20
+    enabled: false
   - source: github:quartz-community/tag-list
     enabled: false
   - source: github:quartz-community/page-title
@@ -254,6 +251,23 @@ plugins:
       priority: 1
       display: desktop-only
       condition: index
+  - source: github:quartz-community/note-properties
+    enabled: true
+    options:
+      includeAll: false
+      includedProperties:
+        - description
+        - tags
+        - aliases
+      excludedProperties: []
+      hidePropertiesView: false
+      delimiters: ---
+      language: yaml
+    order: 5
+    layout:
+      position: beforeBody
+      priority: 15
+      display: all
   - source:
       name: quartz-themes
       repo: github:saberzero1/quartz-themes
@@ -275,13 +289,7 @@ layout:
       direction: row
       gap: 0.5rem
   byPageType:
-    content:
-      positions:
-        right:
-          - id: graph
-            priority: 10
-          - id: backlinks
-            priority: 50
+    content: {}
     folder: {}
     tag: {}
     canvas: {}

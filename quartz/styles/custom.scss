@@ -2,6 +2,11 @@
 
 /* ===== jzhao.xyz 风格复刻 ===== */
 
+/* dappled-scene 只在首页显示 */
+body:not([data-slug="index"]) .dappled-scene {
+  display: none !important;
+}
+
 /* 页面容器 */
 .page {
   max-width: 1400px;
