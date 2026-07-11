@@ -97,8 +97,7 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
     componentResources.css.push(popoverStyle)
   }
 
-  // dappled scene (WebGL tree animation on index page)
-  componentResources.afterDOMLoaded.push(dappledScript)
+  // dappled scene - CSS-only version (removed WebGL for compatibility)
 
   if (cfg.analytics?.provider === "google") {
     const tagId = cfg.analytics.tagId
