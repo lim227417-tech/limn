@@ -12,99 +12,45 @@ body[data-slug="index"] .article-title {
   display: none !important;
 }
 
-/* dappled-scene CSS 动画 - 树影斑驳效果 */
+/* dappled-scene WebGL 容器 */
+:root {
+  --komorebi-shadow: #233452;
+  --komorebi-mid: #e89a39;
+  --komorebi-light: #f5eedd;
+  --komorebi-frame: var(--komorebi-shadow);
+  --komorebi-gap: var(--komorebi-light);
+  --komorebi-center: 0.38;
+}
+
+[saved-theme="dark"] {
+  --komorebi-shadow: #0c2038;
+  --komorebi-mid: #6a86b0;
+  --komorebi-light: #83a1c9;
+  --komorebi-frame: var(--komorebi-light);
+  --komorebi-gap: var(--komorebi-shadow);
+}
+
 .dappled-scene {
   box-sizing: border-box;
+  border: 2px solid var(--komorebi-frame);
+  background-color: var(--komorebi-gap);
   width: 100%;
-  height: 220px;
+  height: 180px;
   margin: 0 0 1.5rem;
+  padding: 2px;
   position: relative;
   overflow: hidden;
-  border-radius: 6px;
-  background: linear-gradient(135deg, var(--light) 0%, var(--lightgray) 100%);
 }
 
-.dappled-scene::before,
-.dappled-scene::after {
-  content: "";
-  position: absolute;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
-  pointer-events: none;
+.dappled-scene > .dappled-canvas {
+  image-rendering: pixelated;
+  opacity: 0;
+  animation: 0.8s forwards dappled-fade-in;
+  display: block;
 }
 
-.dappled-scene::before {
-  background:
-    radial-gradient(ellipse 120px 160px at 15% 40%, rgba(200, 72, 43, 0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 80px 120px at 45% 20%, rgba(40, 77, 120, 0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 160px 100px at 70% 60%, rgba(200, 72, 43, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 100px 140px at 30% 75%, rgba(40, 77, 120, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 140px 80px at 55% 45%, rgba(200, 72, 43, 0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 90px 130px at 85% 30%, rgba(40, 77, 120, 0.25) 0%, transparent 60%);
-  animation: dappled-drift 18s ease-in-out infinite alternate;
-}
-
-.dappled-scene::after {
-  background:
-    radial-gradient(ellipse 110px 90px at 25% 55%, rgba(200, 72, 43, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 70px 150px at 60% 30%, rgba(40, 77, 120, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 130px 110px at 40% 80%, rgba(200, 72, 43, 0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 100px 80px at 75% 15%, rgba(40, 77, 120, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 90px 120px at 50% 50%, rgba(244, 200, 75, 0.15) 0%, transparent 60%);
-  animation: dappled-drift 22s ease-in-out infinite alternate-reverse;
-}
-
-/* 树干 */
-.dappled-scene {
-  background:
-    linear-gradient(to right,
-      transparent 17%, transparent 18%,
-      rgba(22, 41, 78, 0.12) 18%, rgba(22, 41, 78, 0.12) 18.8%,
-      transparent 18.8%,
-      transparent 66%, transparent 67%,
-      rgba(22, 41, 78, 0.08) 67%, rgba(22, 41, 78, 0.08) 67.6%,
-      transparent 67.6%
-    ),
-    linear-gradient(135deg, var(--light) 0%, var(--lightgray) 100%);
-}
-
-@keyframes dappled-drift {
-  0% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(20px, -15px) scale(1.02); }
-  50% { transform: translate(-15px, 10px) scale(0.98); }
-  75% { transform: translate(10px, -8px) scale(1.01); }
-  100% { transform: translate(-5px, 5px) scale(1); }
-}
-
-/* 深色模式 */
-[saved-theme="dark"] .dappled-scene {
-  background:
-    linear-gradient(to right,
-      transparent 17%, transparent 18%,
-      rgba(238, 244, 252, 0.06) 18%, rgba(238, 244, 252, 0.06) 18.8%,
-      transparent 18.8%,
-      transparent 66%, transparent 67%,
-      rgba(238, 244, 252, 0.04) 67%, rgba(238, 244, 252, 0.04) 67.6%,
-      transparent 67.6%
-    ),
-    linear-gradient(135deg, var(--light) 0%, var(--lightgray) 100%);
-}
-
-[saved-theme="dark"] .dappled-scene::before {
-  background:
-    radial-gradient(ellipse 120px 160px at 15% 40%, rgba(224, 85, 47, 0.3) 0%, transparent 60%),
-    radial-gradient(ellipse 80px 120px at 45% 20%, rgba(143, 185, 222, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 160px 100px at 70% 60%, rgba(224, 85, 47, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 100px 140px at 30% 75%, rgba(143, 185, 222, 0.15) 0%, transparent 60%);
-}
-
-[saved-theme="dark"] .dappled-scene::after {
-  background:
-    radial-gradient(ellipse 110px 90px at 25% 55%, rgba(224, 85, 47, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse 70px 150px at 60% 30%, rgba(143, 185, 222, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 130px 110px at 40% 80%, rgba(224, 85, 47, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 90px 120px at 50% 50%, rgba(201, 84, 47, 0.12) 0%, transparent 60%);
+@keyframes dappled-fade-in {
+  to { opacity: 1; }
 }
 
 /* 页面容器 */
