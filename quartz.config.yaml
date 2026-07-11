@@ -106,7 +106,7 @@ plugins:
     enabled: false
     order: 92
   - source: github:quartz-community/fonts
-    enabled: true
+    enabled: false
     order: 5
   - source: github:quartz-community/remove-draft
     enabled: true
@@ -250,7 +250,6 @@ plugins:
       position: beforeBody
       priority: 1
       display: desktop-only
-      condition: index
   - source: github:quartz-community/note-properties
     enabled: true
     options:
