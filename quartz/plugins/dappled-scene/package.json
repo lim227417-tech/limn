@@ -1,0 +1,17 @@
+{
+  "name": "dappled-scene",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive dappled-light hero scene for the Quartz homepage.",
+  "type": "module",
+  "quartz": {
+    "name": "dappled-scene",
+    "displayName": "Dappled Scene",
+    "description": "Interactive dappled-light hero scene for the Quartz homepage.",
+    "version": "1.0.0",
+    "category": "component",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultEnabled": true
+  }
+}

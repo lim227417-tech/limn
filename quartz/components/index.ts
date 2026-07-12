@@ -14,5 +14,7 @@ export type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps 
 
 export { Head, Spacer, DesktopOnly, MobileOnly, NotFound, Flex, ConditionalRender, DappledScene }
 
-// Register DappledScene so it can be referenced in quartz.config.yaml layout
+// Register the scene under its component name and local plugin alias so the
+// declarative Quartz layout can resolve either form.
 componentRegistry.register("DappledScene", DappledScene, "quartz")
+componentRegistry.register("dappled-scene-local", DappledScene, "quartz")
