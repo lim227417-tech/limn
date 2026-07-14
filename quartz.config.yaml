@@ -1,12 +1,12 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
   pageTitle: "ZenGen"
-  pageTitleSuffix: " · a digital garden"
+  pageTitleSuffix: " · 数字花园"
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
-  locale: en-US
+  locale: zh-CN
   baseUrl: limn-d9y.pages.dev
   ignorePatterns:
     - private

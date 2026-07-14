@@ -12,7 +12,7 @@ import path from "path"
 const dappledScript = fs.readFileSync(
   path.join(process.cwd(), "quartz/components/scripts/dappled.inline.ts"),
   "utf-8",
-)
+) + "()"
 import baseStyles from "../../styles/base.scss"
 import customStyles from "../../styles/custom.scss"
 import popoverStyle from "../../components/styles/popover.scss"
