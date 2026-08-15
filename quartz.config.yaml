@@ -211,9 +211,6 @@ plugins:
     enabled: true
     options:
       links: {}
-    layout:
-      position: afterBody
-      priority: 99
   - source: github:quartz-community/recent-notes
     enabled: true
     options:
